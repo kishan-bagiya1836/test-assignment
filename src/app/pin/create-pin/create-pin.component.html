@@ -1,8 +1,8 @@
-<div class="overlay">
+<div class="overlay d-flex justify-content-center align-items-center">
   <form
     [formGroup]="pinForm"
     (ngSubmit)="onSubmit()"
-    class="col-md-6 p-4 m-4 border rounded bg-white shadow add-pin-form"
+    class="w-100 p-4 m-4 border rounded bg-white shadow add-pin-form"
   >
     <h3>Add Pin</h3>
 
@@ -57,7 +57,7 @@
         <img
           [src]="imageDataUrl"
           alt="Uploaded Image"
-          style="width: 75px; height: 50px"
+          style="width: 100px; height: auto"
         />
       </div>
     </div>
@@ -117,13 +117,13 @@
       </div>
     </div>
 
-    <div class="float-right">
-      <button type="button" class="btn btn-danger" (click)="cancel()">
+    <div class="d-flex justify-content-end">
+      <button type="button" class="btn btn-danger ml-1 mb-1" (click)="cancel()">
         Cancel
       </button>
       <button
         type="submit"
-        class="btn btn-primary ml-2"
+        class="btn btn-primary ml-1 mb-1"
         [disabled]="pinForm.invalid || !selectedFile"
       >
         Save

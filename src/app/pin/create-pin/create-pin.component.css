@@ -21,3 +21,20 @@
 .form-check-inline .form-check-input {
     margin-top: 5px;
 }
+
+@media (max-width: 768px) {
+    .add-pin-form {
+      padding: 20px;
+      margin: 10px;
+    }
+    .drag-drop-area {
+      text-align: center;
+    }
+    .d-flex {
+      flex-direction: column;
+    }
+    .btn {
+      width: 100%;
+      margin-top: 10px;
+    }
+}

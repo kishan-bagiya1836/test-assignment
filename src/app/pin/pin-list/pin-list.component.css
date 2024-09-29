@@ -1,0 +1,12 @@
+@media (max-width: 768px) {
+    .table-responsive {
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch; /* Enable smooth scrolling on iOS */
+    }
+    
+    td img {
+      width: 100%;
+      height: auto; /* Ensure the image scales responsively */
+    }
+}
+  

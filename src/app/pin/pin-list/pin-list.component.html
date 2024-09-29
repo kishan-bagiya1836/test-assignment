@@ -12,33 +12,46 @@
     </button>
   </div>
 
-  <table class="table table-striped">
-    <thead>
-      <tr>
-        <th scope="col">Title</th>
-        <th scope="col">Image</th>
-        <th scope="col">Collaboratory</th>
-        <th scope="col">Privacy</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let pin of pins">
-        <td>{{ pin?.title }}</td>
-        <td>
-          <img
-            src="{{ pin.image }}"
-            alt="image"
-            style="width: 75px; height: 60px"
-          />
-        </td>
-        <td>
-          <span *ngFor="let collaborator of pin.collaborators; let last = last">
-            {{ collaborator }}
-            <ng-container *ngIf="!last"><br /></ng-container>
-          </span>
-        </td>
-        <td>{{ pin.privacy }}</td>
-      </tr>
-    </tbody>
-  </table>
+  <!-- Make the table responsive -->
+  <div class="table-responsive">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col">Title</th>
+          <th scope="col">Image</th>
+          <th scope="col">Collaboratory</th>
+          <th scope="col">Privacy</th>
+        </tr>
+      </thead>
+      <tbody>
+        <ng-container *ngIf="pins.length > 0" else noRecords>
+          <tr *ngFor="let pin of pins">
+            <td>{{ pin?.title }}</td>
+            <td>
+              <img
+                src="{{ pin.image }}"
+                alt="image"
+                style="width: 75px; height: 60px"
+              />
+            </td>
+            <td>
+              <span
+                *ngFor="let collaborator of pin.collaborators; let last = last"
+              >
+                {{ collaborator }}
+                <ng-container *ngIf="!last"><br /></ng-container>
+              </span>
+            </td>
+            <td>{{ pin.privacy }}</td>
+          </tr>
+        </ng-container>
+
+        <ng-template #noRecords>
+          <tr>
+            <td colspan="4">No Records Found</td>
+          </tr>
+        </ng-template>
+      </tbody>
+    </table>
+  </div>
 </div>
