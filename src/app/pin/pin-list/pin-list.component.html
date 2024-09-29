@@ -1,1 +1,26 @@
-<p>pin-list works!</p>
+<div class="container">
+  <div class="d-flex flex-column align-items-end my-3">
+    <button
+      type="button"
+      class="btn btn-primary mb-2"
+      (click)="openAddCusomerModal()"
+    >
+      Add Customer
+    </button>
+    <button type="button" class="btn btn-primary" (click)="openAddPinModal()">
+      Add Pin
+    </button>
+  </div>
+
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">Title</th>
+        <th scope="col">Image</th>
+        <th scope="col">Collaboratory</th>
+        <th scope="col">Privacy</th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+</div>

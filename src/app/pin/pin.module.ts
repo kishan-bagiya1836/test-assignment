@@ -10,6 +10,7 @@ import { PinListComponent } from './pin-list/pin-list.component';
   ],
   imports: [
     CommonModule
-  ]
+  ],
+  exports:[PinListComponent]
 })
 export class PinModule { }
