@@ -17,7 +17,7 @@ export class PinListComponent implements OnInit {
   }
 
   openAddCusomerModal() {
-    this.modalService.open(CreateCustomerComponent, { scrollable: true});
+    this.modalService.open(CreateCustomerComponent, { scrollable: true, size: 'lg' });
   }
   openAddPinModal() {
     const modalRef =  this.modalService.open(CreatePinComponent, { scrollable: true});
