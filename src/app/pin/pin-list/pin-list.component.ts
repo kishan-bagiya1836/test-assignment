@@ -13,20 +13,29 @@ export class PinListComponent implements OnInit {
   constructor(private readonly modalService: NgbModal) {
   }
   ngOnInit(): void {
-    throw new Error('Method not implemented.');
+    this.getPins();
   }
 
+   // Method to get pins data
+   getPins() {
+    // Get pins from localStorage
+    this.pins = JSON.parse(localStorage.getItem('pins') || '[]');
+  }
+
+  // Method to open Add Customer modal
   openAddCusomerModal() {
     this.modalService.open(CreateCustomerComponent, { scrollable: true, size: 'lg' });
   }
+
+  // Method to open Add Pin modal
   openAddPinModal() {
-    const modalRef =  this.modalService.open(CreatePinComponent, { scrollable: true});
+    const modalRef =  this.modalService.open(CreatePinComponent, { scrollable: true, size: 'lg' });
     modalRef.result.then(
-      (result) => {
-        console.log('Modal closed with:', result);
+      (_result) => {
+        this.getPins();
       },
-      (reason) => {
-        console.log('Modal dismissed with reason:', reason);
+      (_reason) => {
+        // console.log('Modal dismissed with reason:', _reason);
       }
     );
   }

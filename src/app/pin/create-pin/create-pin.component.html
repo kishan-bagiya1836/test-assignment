@@ -15,6 +15,7 @@
         formControlName="title"
         class="form-control"
         placeholder="Enter Title"
+        autocomplete="off"
       />
       <div
         *ngIf="pinForm.get('title')?.invalid && pinForm.get('title')?.touched"

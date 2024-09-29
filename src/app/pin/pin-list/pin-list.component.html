@@ -21,6 +21,24 @@
         <th scope="col">Privacy</th>
       </tr>
     </thead>
-    <tbody></tbody>
+    <tbody>
+      <tr *ngFor="let pin of pins">
+        <td>{{ pin?.title }}</td>
+        <td>
+          <img
+            src="{{ pin.image }}"
+            alt="image"
+            style="width: 75px; height: 60px"
+          />
+        </td>
+        <td>
+          <span *ngFor="let collaborator of pin.collaborators; let last = last">
+            {{ collaborator }}
+            <ng-container *ngIf="!last"><br /></ng-container>
+          </span>
+        </td>
+        <td>{{ pin.privacy }}</td>
+      </tr>
+    </tbody>
   </table>
 </div>
