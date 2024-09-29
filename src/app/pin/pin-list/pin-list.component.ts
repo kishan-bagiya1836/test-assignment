@@ -17,15 +17,7 @@ export class PinListComponent implements OnInit {
   }
 
   openAddCusomerModal() {
-    const modalRef = this.modalService.open(CreateCustomerComponent, { scrollable: true});
-    modalRef.result.then(
-      (result) => {
-        console.log('Modal closed with:', result);
-      },
-      (reason) => {
-        console.log('Modal dismissed with reason:', reason);
-      }
-    );
+    this.modalService.open(CreateCustomerComponent, { scrollable: true});
   }
   openAddPinModal() {
     const modalRef =  this.modalService.open(CreatePinComponent, { scrollable: true});

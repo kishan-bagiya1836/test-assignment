@@ -1,1 +1,90 @@
-<p>create-customer works!</p>
+<div class="overlay">
+  <form
+    [formGroup]="customerForm"
+    (ngSubmit)="onSubmit()"
+    class="col-md-6 p-4 m-4 border rounded bg-white shadow add-customer-form"
+  >
+    <div class="header">
+      <h3 class="text-center">Add Customer</h3>
+    </div>
+    <div class="form-group">
+      <label for="name">Name*</label>
+      <input
+        type="text"
+        id="name"
+        formControlName="name"
+        class="form-control"
+        autocomplete="customer-name"
+      />
+      <div
+        *ngIf="
+          customerForm.get('name')?.invalid && customerForm.get('name')?.touched
+        "
+        class="text-danger"
+      >
+        Name is required.
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="email">Email*</label>
+      <input
+        type="email"
+        id="email"
+        formControlName="email"
+        class="form-control"
+        autocomplete="customer-email"
+      />
+      <div
+        *ngIf="
+          customerForm.get('email')?.invalid &&
+          customerForm.get('email')?.touched
+        "
+        class="text-danger"
+      >
+        Valid email is required.
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="region">Region*</label>
+      <ngx-select
+        [items]="uniqueRegions"
+        formControlName="region"
+        (select)="getCountries($event)"
+        autocomplete="customer-region"
+      ></ngx-select>
+      <div
+        *ngIf="
+          customerForm.get('region')?.invalid &&
+          customerForm.get('region')?.touched
+        "
+        class="text-danger"
+      >
+        Region is required.
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="country">Country</label>
+      <ngx-select
+        [items]="countries"
+        formControlName="country"
+        autocomplete="customer-country"
+      ></ngx-select>
+    </div>
+
+    <div class="float-right">
+      <button type="button" class="btn btn-danger" (click)="cancel()">
+        Cancel
+      </button>
+      <button
+        type="submit"
+        class="btn btn-primary ml-2"
+        [disabled]="customerForm.invalid"
+      >
+        Save
+      </button>
+    </div>
+  </form>
+</div>
